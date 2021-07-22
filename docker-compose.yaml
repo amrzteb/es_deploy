@@ -15,12 +15,12 @@ services:
         soft: 65536 # maximum number of open files for the Elasticsearch user, set to at least 65536 on modern systems
         hard: 65536
     volumes:
-      - odfe-data1:/usr/share/elasticsearch/data
-      - /opt/open/odfe/internal_users.yml:/usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml
-      - /opt/open/odfe/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - /opt/open/odfe/cert/node.pem:/usr/share/elasticsearch/config/node.pem
-      - /opt/open/odfe/cert/node-key.pem:/usr/share/elasticsearch/config/node-key.pem
-      - /opt/open/odfe/cert/root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
+      - odfe-data2:/usr/share/elasticsearch/data
+      - /opt/open/es_deploy/internal_users.yml:/usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml
+      - /opt/open/es_deploy/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - /opt/open/es_deploy/cert/node.pem:/usr/share/elasticsearch/config/node.pem
+      - /opt/open/es_deploy/cert/node-key.pem:/usr/share/elasticsearch/config/node-key.pem
+      - /opt/open/es_deploy/cert/root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
     ports:
       - 9200:9200
       - 9600:9600 # required for Performance Analyzer
@@ -45,7 +45,7 @@ services:
       - odfe-net
 
 volumes:
-  odfe-data1:
+  odfe-data2:
 
 networks:
   odfe-net:
